@@ -5,19 +5,19 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		<link rel="stylesheet" href="assets/css/styles.css" />
-        <link rel="shortcut icon" href="assets/img/favicon.ico" type="image/x-icon">
+		<link rel="icon" type="image/png" href="assets/img/favicon-96x96.png" sizes="96x96" />
 
 		<!-- box icons -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
 
-		<title>Raghav's Portfolio</title>
+		<title>Raghav Agarwal | Portfolio</title>
 	</head>
 	<body>
 		<!-- header -->
 		<header class="l-header">
 			<nav class="nav bd-grid">
 				<div>
-					<a href="#" class="nav__logo">Raghav</a>
+					<a href="#" class="nav__logo">Raghav Agarwal</a>
 				</div>
 
 				<div class="nav__menu" id="nav-menu">
@@ -41,8 +41,11 @@
 			<!-- home -->
 			<section class="home bd-grid" id="home">
 				<div class="home__data">
-					<h1 class="home__title">Hi,<br />I'am <span class="home__title-color">Raghav</span><br />Full Stack Dev</h1>
-
+					<h1 class="home__title">Hi,<br />I'am <span class="home__title-color">Raghav</span><br /></h1>
+					<p class="home__description">
+						Passionate full-stack developer skilled in MERN, Docker, and cloud technologies. Exploring AI-driven solutions,
+						serverless architectures, and DevOps.
+					</p>
 					<a href="#contact" class="button">Contact</a>
 				</div>
 
@@ -87,9 +90,20 @@
 					<div>
 						<h2 class="about__subtitle">I'am Raghav</h2>
 						<p class="about__text">
-							"Passionate problem-solver with a knack for building scalable web apps and deploying Dockerized applications.
+							Passionate problem-solver with a knack for building scalable web apps and deploying Dockerized applications.
+						</p>
+						<p class="about__text">
 							From crafting full-stack solutions to optimizing workflows, I turn ideas into seamless digital experiences.
-							Always up for a challenge—because debugging is just another way to prove I’m smarter than my own code."
+						</p>
+						<p class="about__text">
+							Currently exploring AI-powered cloud solutions, serverless architectures, and container orchestration to
+							redefine digital transformation.
+						</p>
+						<p class="about__text">
+							Outside of tech, I’m an avid cyclist, and traveler, always seeking new challenges on and off the trail.
+						</p>
+						<p class="about__text">
+							Let’s connect and collaborate on cutting-edge AI cloud solutions that shape the future! 🚀
 						</p>
 					</div>
 				</div>
@@ -168,7 +182,13 @@
 						</div>
 					</div>
 					<div>
-						<div class="emptyArea"></div>
+						<div class="emptyArea">
+							<h2 class="skills__subtitle">Expertise</h2>
+							<p class="skills__text">
+								"These are some of the technologies I have expertise in. I have worked on multiple projects using these
+								technologies."
+							</p>
+						</div>
 						<div class="skills__data">
 							<div class="skills__names">
 								<i class="bx bxl-html5 skills__icon"></i>
@@ -237,12 +257,182 @@
 			<section class="work section" id="work">
 				<h2 class="section-title">Work</h2>
 
-				<div class="work__container bd-grid">
-					<a href="https://github.com/git-raghav/AlgoVista" class="work__img">
-						<img src="assets/img/work1.jpg" alt="project image" />
-					</a>
+				<div class="work__container">
+                    <!-- Algovista -->
+                    <div class="work__card">
+						<img src="assets/img/algovista.png" alt="AlgoVista Image" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">AlgoVista</h3>
+							<p class="work__description">
+                                AlgoVista is a Web Application to Visualize Pathfinding & Sorting Algorithms and Data Structures.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/AlgoVista.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a href="https://git-raghav.github.io/AlgoVista/" class="work__btn" target="_blank"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Docker Project Card -->
+					<div class="work__card">
+						<img src="assets/img/docker-project.jpeg" alt="Docker Project" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">My Docker Dockyard</h3>
+							<p class="work__description">A collection of containerized experiments, mastering Docker for scalability.</p>
+							<a href="https://github.com/git-raghav/My-Docker-Dockyard" class="work__btn" target="_blank">Visit GitHub</a>
+						</div>
+					</div>
+
+					<!-- Streamlit Dashboard Card -->
+					<div class="work__card">
+						<img src="assets/img/dashboard.png" alt="Streamlit Dashboard" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">Streamlit Dashboard</h3>
+							<p class="work__description">
+								This interactive Streamlit web app provides a seamless experience for data exploration and visualization.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/Streamlit-Dashboard.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a href="https://app-dashboard-raghavcodes.streamlit.app/" class="work__btn" target="_blank"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Titanic Survival Prediction Card -->
+					<div class="work__card">
+						<img src="assets/img/titanic.png" alt="Titanic Survival Prediction" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">Titanic Survival Prediction</h3>
+							<p class="work__description">
+								A machine learning model predicting survival chances on the Titanic using Python and scikit-learn.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/Titanic-Survival-Predictor.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a
+									href="https://titanic-survival-predictor-raghav.streamlit.app/"
+									class="work__btn"
+									target="_blank"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<!-- Binary Classification WebApp Card -->
+					<div class="work__card">
+						<img src="assets/img/BC.png" alt="Binary Classification Web App" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">Binary Classification Web App</h3>
+							<p class="work__description">
+								A machine learning web application built with Streamlit to classify mushrooms as edible or poisonous.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/Binary-Classification-App.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a
+									href="https://binary-classification-app-raghavcodes.streamlit.app/"
+									class="work__btn"
+									target="_blank"
+									>Live Demo</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="work__card">
+						<img src="assets/img/evidently.png" alt="Evidently AI Web App" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">Evidently AI Web App</h3>
+							<p class="work__description">
+								Uses Evidently AI for monitoring machine learning models. Provides an interactive dashboard in Streamlit.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/Evidently-AI-Streamlit-App.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a
+
+									class="work__btn"
+
+									>will fix shortly</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="work__card">
+						<img src="assets/img/postgress.png" alt="Streamlit app" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">Streamlit with Postgress</h3>
+							<p class="work__description">
+								Streamlit app connected to PostgreSQL. The app fetches data from the database and displays it in a table.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/Streamlit-PostgreSQL-docked.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a
+
+									class="work__btn"
+
+									>will fix shortly</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="work__card">
+						<img src="assets/img/coedit.jpg" alt="CoEdit Web App" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">CoEdit</h3>
+							<p class="work__description">
+								A highly Secure, Scalable and Efficient IDE for Collaborative Coding built on Microservices Architecture.
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/CoEdit.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a
+									class="work__btn"
+									>Coming Soon</a
+								>
+							</div>
+						</div>
+					</div>
+
+					<div class="work__card">
+						<img src="assets/img/lodgr.jpg" alt="Lodgr Web App" class="work__image" />
+						<div class="work__content">
+							<h3 class="work__title">Lodgr</h3>
+							<p class="work__description">
+								Lodgr connects travelers with unique stays across the globe. From urban pads to cozy retreats, find, book, and enjoy effortlessly. Your next adventure starts here!
+							</p>
+							<div class="work__btn-container">
+								<a href="https://github.com/git-raghav/Lodgr.git" class="work__btn" target="_blank"
+									>Visit GitHub</a
+								>
+								<a
+									class="work__btn"
+									>Coming Soon</a
+								>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
+
+			<div style="height: 100px"></div>
 
 			<!-- CONTACT -->
 			<section class="contact section" id="contact">
@@ -261,7 +451,7 @@
 
 		<!-- FOOTER -->
 		<footer class="footer">
-			<p class="footer__title">Raghav</p>
+			<p class="footer__title">Raghav Agarwal</p>
 			<div class="footer__social">
 				<a href="#" class="footer__icon"><i class="bx bxl-facebook"></i></a>
 				<a href="https://www.instagram.com/raghavsayshii/" class="footer__icon" target="_blank"><i class="bx bxl-instagram"></i></a>
@@ -271,7 +461,8 @@
 		</footer>
 
 		<!-- SCROLL REVEAL -->
-		<script src="https://unpkg.com/scrollreveal"></script>
+		<!-- <script src="https://unpkg.com/scrollreveal"></script> -->
+		<script src="https://cdn.jsdelivr.net/npm/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 
 		<!-- MAIN JS -->
 		<script src="assets/js/main.js"></script>
