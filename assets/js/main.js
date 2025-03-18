@@ -1,63 +1,63 @@
-document.getElementById('sendMail').addEventListener('click', function() {
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
+document.getElementById("sendMail").addEventListener("click", function () {
+	const name = document.getElementById("name").value;
+	const email = document.getElementById("email").value;
+	const message = document.getElementById("message").value;
 
-    const mailtoLink = `mailto:raghavagarwal3618@gmail.com?subject=Contact from ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
-    window.location.href = mailtoLink;
+	const mailtoLink = `mailto:raghavagarwal3618@gmail.com?subject=Contact from ${name}&body=Name: ${name}%0AEmail: ${email}%0A%0A${message}`;
+	window.location.href = mailtoLink;
 });
 
 // MENU SHOW
-const showMenu = (toggleId, navId) =>{
-    const toggle = document.getElementById(toggleId),
-    nav = document.getElementById(navId)
+const showMenu = (toggleId, navId) => {
+	const toggle = document.getElementById(toggleId),
+		nav = document.getElementById(navId);
 
-    if(toggle && nav){
-        toggle.addEventListener('click', ()=>{
-            nav.classList.toggle('show')
-        })
-    }
-}
-showMenu('nav-toggle','nav-menu')
+	if (toggle && nav) {
+		toggle.addEventListener("click", () => {
+			nav.classList.toggle("show");
+		});
+	}
+};
+showMenu("nav-toggle", "nav-menu");
 
 // REMOVE MENU MOBILE
-const navLink = document.querySelectorAll('.nav__link')
+const navLink = document.querySelectorAll(".nav__link");
 
-function linkAction(){
-    const navMenu = document.getElementById('nav-menu')
-    // When we click on each nav__link, we remove the show-menu class
-    navMenu.classList.remove('show')
+function linkAction() {
+	const navMenu = document.getElementById("nav-menu");
+	// When we click on each nav__link, we remove the show-menu class
+	navMenu.classList.remove("show");
 }
-navLink.forEach(n => n.addEventListener('click', linkAction))
+navLink.forEach((n) => n.addEventListener("click", linkAction));
 
 // SCROLL SECTIONS ACTIVE LINK
-const sections = document.querySelectorAll('section[id]')
+const sections = document.querySelectorAll("section[id]");
 
-const scrollActive = () =>{
-    const scrollDown = window.scrollY
+const scrollActive = () => {
+	const scrollDown = window.scrollY;
 
-  sections.forEach(current =>{
-        const sectionHeight = current.offsetHeight,
-              sectionTop = current.offsetTop - 58,
-              sectionId = current.getAttribute('id'),
-              sectionsClass = document.querySelector('.nav__menu a[href*=' + sectionId + ']')
+	sections.forEach((current) => {
+		const sectionHeight = current.offsetHeight,
+			sectionTop = current.offsetTop - 58,
+			sectionId = current.getAttribute("id"),
+			sectionsClass = document.querySelector(".nav__menu a[href*=" + sectionId + "]");
 
-        if(scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight){
-            sectionsClass.classList.add('active-link')
-        }else{
-            sectionsClass.classList.remove('active-link')
-        }
-    })
-}
-window.addEventListener('scroll', scrollActive)
+		if (scrollDown > sectionTop && scrollDown <= sectionTop + sectionHeight) {
+			sectionsClass.classList.add("active-link");
+		} else {
+			sectionsClass.classList.remove("active-link");
+		}
+	});
+};
+window.addEventListener("scroll", scrollActive);
 
 // SCROLL REVEAL ANIMATION
 const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 1500,
-    delay: 200,
-    reset: true,
+	origin: "top",
+	distance: "60px",
+	duration: 1500,
+	delay: 200,
+	reset: true,
 });
 
 // Home and About sections
@@ -103,7 +103,7 @@ function typeEffect() {
 }
 
 // Add typing effect CSS
-const typingStyle = document.createElement('style');
+const typingStyle = document.createElement("style");
 typingStyle.textContent = `
 	.nav__logo {
 		border-right: 2px solid var(--first-color);
@@ -120,18 +120,17 @@ typingStyle.textContent = `
 document.head.appendChild(typingStyle);
 
 // Initialize typing effect when page loads
-window.addEventListener('load', typeEffect);
+window.addEventListener("load", typeEffect);
 
 // Theme toggle functionality
 function setupThemeToggle() {
 	const body = document.body;
-	const nav = document.querySelector(".nav");
 
-	// Add theme toggle button to nav
+	// Create theme toggle button
 	const themeToggle = document.createElement("div");
 	themeToggle.className = "theme-toggle";
 	themeToggle.innerHTML = '<i class="bx bx-moon"></i>';
-	nav.appendChild(themeToggle);
+	document.body.appendChild(themeToggle);
 
 	// Toggle theme
 	themeToggle.addEventListener("click", () => {
@@ -228,11 +227,291 @@ function initParticles() {
 	});
 }
 
-// Initialize everything
+// Parallax Effect
+function initParallax() {
+	const parallaxSections = document.querySelectorAll(".parallax-section");
+
+	window.addEventListener("scroll", () => {
+		parallaxSections.forEach((section) => {
+			const speed = section.dataset.speed || 0.5;
+			const yPos = -(window.pageYOffset * speed);
+			section.querySelector(".parallax-bg").style.transform = `translateY(${yPos}px)`;
+		});
+	});
+}
+
+// Enhanced Scroll Reveal
+function enhancedScrollReveal() {
+	const sections = document.querySelectorAll(".section");
+	const skillsData = document.querySelectorAll(".skills__data");
+
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				if (entry.isIntersecting) {
+					entry.target.classList.add("visible");
+
+					// Animate skills data with delay
+					if (entry.target.id === "skills") {
+						skillsData.forEach((skill, index) => {
+							setTimeout(() => {
+								skill.classList.add("visible");
+							}, index * 100);
+						});
+					}
+				}
+			});
+		},
+		{
+			threshold: 0.1,
+		}
+	);
+
+	sections.forEach((section) => observer.observe(section));
+}
+
+// 3D Card Effect with increased sensitivity
+function init3DCards() {
+	const cards = document.querySelectorAll(".work__card");
+
+	cards.forEach((card) => {
+		card.addEventListener("mousemove", (e) => {
+			const rect = card.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			const centerX = rect.width / 2;
+			const centerY = rect.height / 2;
+
+			const rotateX = (y - centerY) / 10; // Increased sensitivity
+			const rotateY = (centerX - x) / 10; // Increased sensitivity
+
+			card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+		});
+
+		card.addEventListener("mouseleave", () => {
+			card.style.transform = "perspective(1000px) rotateX(0) rotateY(0)";
+		});
+	});
+}
+
+// Magnetic Effect for Buttons (excluding work section)
+function initMagneticEffect() {
+	const buttons = document.querySelectorAll(".button, .contact__button, .nav__link");
+
+	buttons.forEach((button) => {
+		// Skip buttons in work section
+		if (button.closest(".work__card")) return;
+
+		button.addEventListener("mousemove", (e) => {
+			const rect = button.getBoundingClientRect();
+			const x = e.clientX - rect.left;
+			const y = e.clientY - rect.top;
+
+			const centerX = rect.width / 2;
+			const centerY = rect.height / 2;
+
+			const deltaX = (x - centerX) / centerX;
+			const deltaY = (y - centerY) / centerY;
+
+			button.style.transform = `translate(${deltaX * 20}px, ${deltaY * 20}px)`;
+		});
+
+		button.addEventListener("mouseleave", () => {
+			button.style.transform = "translate(0, 0)";
+		});
+	});
+}
+
+// Animated Character with Following Eyes
+function initAnimatedCharacter() {
+	const canvas = document.getElementById("aboutCharacter");
+	const ctx = canvas.getContext("2d");
+	let mouseX = window.innerWidth / 2;
+	let mouseY = window.innerHeight / 2;
+
+	// Character properties
+	const character = {
+		x: canvas.width / 2,
+		y: canvas.height / 2,
+		width: 200,
+		height: 180,
+		eyeSize: 20,
+		eyeOffset: 35,
+		color: "#4070F4",
+	};
+
+	// Track mouse movement globally
+	document.addEventListener("mousemove", (e) => {
+		mouseX = e.clientX;
+		mouseY = e.clientY;
+	});
+
+	// Draw character
+	function drawCharacter() {
+		// Clear canvas
+		ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+		// Draw the blob shape
+		ctx.beginPath();
+		const scale = 0.4; // Scale factor for the SVG path
+
+		// Starting point
+		ctx.moveTo(character.x - character.width / 2, character.y);
+
+		// Recreate the SVG path but scaled down
+		ctx.bezierCurveTo(
+			character.x - character.width * 0.4,
+			character.y - character.height * 0.4,
+			character.x - character.width * 0.1,
+			character.y - character.height * 0.45,
+			character.x + character.width * 0.2,
+			character.y - character.height * 0.4
+		);
+
+		ctx.bezierCurveTo(
+			character.x + character.width * 0.4,
+			character.y - character.height * 0.3,
+			character.x + character.width * 0.5,
+			character.y - character.height * 0.1,
+			character.x + character.width * 0.5,
+			character.y + character.height * 0.1
+		);
+
+		ctx.bezierCurveTo(
+			character.x + character.width * 0.5,
+			character.y + character.height * 0.3,
+			character.x + character.width * 0.3,
+			character.y + character.height * 0.4,
+			character.x,
+			character.y + character.height * 0.4
+		);
+
+		ctx.bezierCurveTo(
+			character.x - character.width * 0.3,
+			character.y + character.height * 0.4,
+			character.x - character.width * 0.5,
+			character.y + character.height * 0.3,
+			character.x - character.width / 2,
+			character.y
+		);
+
+		// Fill the blob
+		ctx.fillStyle = character.color;
+		ctx.fill();
+
+		// Calculate eye positions
+		const leftEyeX = character.x - character.eyeOffset;
+		const rightEyeX = character.x + character.eyeOffset;
+		const eyeY = character.y - character.height * 0.05;
+
+		// Draw eyes (white part)
+		ctx.beginPath();
+		ctx.arc(leftEyeX, eyeY, character.eyeSize, 0, Math.PI * 2);
+		ctx.fillStyle = "#fff";
+		ctx.fill();
+
+		ctx.beginPath();
+		ctx.arc(rightEyeX, eyeY, character.eyeSize, 0, Math.PI * 2);
+		ctx.fill();
+
+		// Calculate pupil positions with constraints
+		const maxPupilOffset = 5;
+
+		// Get canvas position for accurate mouse tracking
+		const rect = canvas.getBoundingClientRect();
+		const canvasX = mouseX - rect.left;
+		const canvasY = mouseY - rect.top;
+
+		// Calculate pupil positions with constraints
+		function calculatePupilPosition(eyeX, eyeY) {
+			const dx = canvasX - eyeX;
+			const dy = canvasY - eyeY;
+			const angle = Math.atan2(dy, dx);
+			const distance = Math.min(maxPupilOffset, Math.sqrt(dx * dx + dy * dy) / 10);
+
+			return {
+				x: eyeX + Math.cos(angle) * distance,
+				y: eyeY + Math.sin(angle) * distance,
+			};
+		}
+
+		const leftPupil = calculatePupilPosition(leftEyeX, eyeY);
+		const rightPupil = calculatePupilPosition(rightEyeX, eyeY);
+
+		// Draw pupils
+		const pupilSize = 12;
+
+		ctx.beginPath();
+		ctx.arc(leftPupil.x, leftPupil.y, pupilSize, 0, Math.PI * 2);
+		ctx.fillStyle = "#000";
+		ctx.fill();
+
+		ctx.beginPath();
+		ctx.arc(rightPupil.x, rightPupil.y, pupilSize, 0, Math.PI * 2);
+		ctx.fill();
+
+		// Draw smile
+		ctx.beginPath();
+		ctx.arc(character.x, character.y + character.height * 0.1, 30, 0, Math.PI);
+		ctx.strokeStyle = "#fff";
+		ctx.lineWidth = 3;
+		ctx.stroke();
+
+		requestAnimationFrame(drawCharacter);
+	}
+
+	// Start animation
+	drawCharacter();
+}
+
+/*==================== EYE MOVEMENT ====================*/
+function initEyeMovement() {
+	const leftPupil = document.getElementById("leftPupil");
+	const rightPupil = document.getElementById("rightPupil");
+	const maxMovement = 10; // Maximum pixel movement for pupils
+
+	document.addEventListener("mousemove", (e) => {
+		const mouseX = e.clientX;
+		const mouseY = e.clientY;
+
+		// Get the position of each eye
+		const leftEyeRect = leftPupil.getBoundingClientRect();
+		const rightEyeRect = rightPupil.getBoundingClientRect();
+
+		// Calculate the center of each eye
+		const leftEyeX = leftEyeRect.left + leftEyeRect.width / 2;
+		const leftEyeY = leftEyeRect.top + leftEyeRect.height / 2;
+		const rightEyeX = rightEyeRect.left + rightEyeRect.width / 2;
+		const rightEyeY = rightEyeRect.top + rightEyeRect.height / 2;
+
+		// Calculate angle between mouse and eyes
+		const leftAngle = Math.atan2(mouseY - leftEyeY, mouseX - leftEyeX);
+		const rightAngle = Math.atan2(mouseY - rightEyeY, mouseX - rightEyeX);
+
+		// Calculate new positions with limited movement
+		const leftPupilX = Math.cos(leftAngle) * maxMovement;
+		const leftPupilY = Math.sin(leftAngle) * maxMovement;
+		const rightPupilX = Math.cos(rightAngle) * maxMovement;
+		const rightPupilY = Math.sin(rightAngle) * maxMovement;
+
+		// Apply the transforms
+		leftPupil.style.transform = `translate(${leftPupilX}px, ${leftPupilY}px)`;
+		rightPupil.style.transform = `translate(${rightPupilX}px, ${rightPupilY}px)`;
+	});
+}
+
+/*==================== WHEN LOAD ====================*/
 window.addEventListener("load", () => {
+	initEyeMovement();
 	typeEffect();
 	setupThemeToggle();
 	initParticles();
+	initParallax();
+	enhancedScrollReveal();
+	init3DCards();
+	initMagneticEffect();
+	initAnimatedCharacter();
 });
 
 // Add required styles
