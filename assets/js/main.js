@@ -125,11 +125,13 @@ window.addEventListener("load", typeEffect);
 // Theme toggle functionality
 function setupThemeToggle() {
 	const body = document.body;
+	// Set dark theme as default
+	body.classList.add("dark-theme");
 
 	// Create theme toggle button
 	const themeToggle = document.createElement("div");
 	themeToggle.className = "theme-toggle";
-	themeToggle.innerHTML = '<i class="bx bx-moon"></i>';
+	themeToggle.innerHTML = '<i class="bx bx-sun"></i>';
 	document.body.appendChild(themeToggle);
 
 	// Toggle theme
@@ -140,8 +142,8 @@ function setupThemeToggle() {
 			icon.classList.remove("bx-moon");
 			icon.classList.add("bx-sun");
 			// Update particles color for dark theme
-			pJS.particles.color.value = "#6D9EEB";
-			pJS.particles.line_linked.color = "#6D9EEB";
+			pJS.particles.color.value = "#3e6ff4";
+			pJS.particles.line_linked.color = "#3e6ff4";
 			pJS.fn.particlesRefresh();
 		} else {
 			icon.classList.remove("bx-sun");
@@ -165,7 +167,7 @@ function initParticles() {
 				},
 			},
 			color: {
-				value: ["#4070F4", "#6D9EEB"],
+				value: ["#4070F4", "#3e6ff4"],
 			},
 			shape: {
 				type: "circle",
@@ -529,7 +531,7 @@ styles.textContent = `
 	}
 
 	.dark-theme {
-		--first-color: #6D9EEB;
+		--first-color: #3e6ff4;
 		--second-color: #E4E6EB;
 		background-color: #18191A;
 		color: #E4E6EB;
@@ -551,15 +553,15 @@ styles.textContent = `
 	}
 
 	.dark-theme .section-title {
-		color: #6D9EEB;
+		color: #3e6ff4;
 	}
 
 	.dark-theme .home__title-color {
-		color: #6D9EEB;
+		color: #3e6ff4;
 	}
 
 	.dark-theme .button {
-		background-color: #6D9EEB;
+		background-color: #3e6ff4;
 	}
 
 	.dark-theme .about__subtitle,
@@ -584,7 +586,7 @@ styles.textContent = `
 	}
 
 	.dark-theme .skills__bar {
-		background-color: #6D9EEB;
+		background-color: #3e6ff4;
 	}
 
 	.dark-theme .work__card {
@@ -593,7 +595,7 @@ styles.textContent = `
 	}
 
 	.dark-theme .work__btn {
-		background-color: #6D9EEB;
+		background-color: #3e6ff4;
 		color: #E4E6EB;
 	}
 
