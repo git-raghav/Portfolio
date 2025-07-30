@@ -125,8 +125,8 @@ window.addEventListener("load", typeEffect);
 // Theme toggle functionality
 function setupThemeToggle() {
 	const body = document.body;
-	// Set dark theme as default
-	body.classList.add("dark-theme");
+	// Set light theme as default (remove dark-theme by default)
+	// body.classList.add("dark-theme");
 
 	// Create theme toggle button
 	const themeToggle = document.createElement("div");
